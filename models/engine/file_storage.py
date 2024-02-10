@@ -1,12 +1,9 @@
 #!/usr/bin/python3
 """This module defines the FileStorage class."""
-
 import json
-
 
 class FileStorage:
     """Serializes instances to a JSON file and deserializes JSON file to instances."""
-
     __file_path = "file.json"
     __objects = {}
 
@@ -33,7 +30,13 @@ class FileStorage:
                 for k, v in data.items():
                     class_name = v['__class__']
                     del v['__class__']
-                    self.__objects[k] = eval(class_name)(**v)
+                    cls = eval(class_name)
+                    self.__objects[k] = cls(**v)
         except FileNotFoundError:
             pass
+
+    def classes(self):
+        """Returns a dictionary of available classes"""
+        from models.base_model import BaseModel
+        return {"BaseModel": BaseModel}
 
