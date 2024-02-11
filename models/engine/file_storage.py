@@ -30,8 +30,7 @@ class FileStorage:
                 for k, v in data.items():
                     class_name = v['__class__']
                     del v['__class__']
-                    cls = eval(class_name)
-                    self.__objects[k] = cls(**v)
+                    self.__objects[k] = eval(class_name)(**v)
         except FileNotFoundError:
             pass
 
