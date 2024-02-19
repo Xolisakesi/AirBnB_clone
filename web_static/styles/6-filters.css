@@ -1,0 +1,43 @@
+.filters {
+    color: white;
+    height: 70px;
+    width: 100%;
+    border-bottom: 1px solid #DDDDDD;
+    display: flex;
+    align-items: center;
+}
+
+.locations,
+.amenities {
+    position: relative;
+    height: 100%;
+    width: 25%;
+    border-right: 1px solid #DDDDDD;
+}
+
+.locations:hover .popover,
+.amenities:hover .popover {
+    display: block;
+}
+
+.popover {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    background-color: #FAFAFA;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    list-style: none;
+    padding: 0;
+}
+
+.popover li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.popover li:hover {
+    background-color: #EEEEEE;
+}
+
